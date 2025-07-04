@@ -10,7 +10,7 @@ def Log(stack, level, packageName, message):
     }
 
     try:
-        # sends POST to our logs.js running on port 4000
+        # sends POST to localhost ie our  logs.js running on port 4000
         requests.post("http://localhost:4000/log", json=data)
     except:
         print("log server maybe not running?")  # optional debug
