@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify, redirect
 from datetime import datetime, timedelta
 from uuid import uuid4
-from logger import Log  # Custom logging module
+from logger import Log  # Custom logging module that was specified
 
 app = Flask(__name__)
 
@@ -30,12 +30,12 @@ def create_short_url():
         Log("backend", "error", "shortener", "Missing URL")
         return jsonify({"error": "URL is required"}), 400
 
-    # Ensure shortcode is unique
+    # Ensure shortcode is unique and not repetitive to avoid mishandling
     if shortcode in url_store:
         Log("backend", "error", "shortener", "Shortcode already exists")
         return jsonify({"error": "Shortcode already exists"}), 409
 
-    # Calculate expiry time based on current UTC time
+    # Calculate expiry time based on current UTC time for generation
     expires_at = datetime.utcnow() + timedelta(minutes=validity)
 
     # Store entry in memory
