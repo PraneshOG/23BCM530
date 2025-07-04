@@ -33,6 +33,7 @@ Endpoint: `/shorturls`
 
 Request Body:
 ```json
+The Request Body has to be in terms of the below so that it works
 {
 “url”: at “https://example.com/very/long/path”
 “validity”: 10,
