@@ -9,7 +9,7 @@ app.use(bodyParser.json())
 app.post('/log', async (req, res) => {
     const { stack, level, packageName, message } = req.body
 
-    // creds for token, no auth for real user required
+    // creds for token, no auth for real user required because of dummy test
     const authData = {
         companyName: "medical",
         clientID: "dummyclientid",
